@@ -6,10 +6,15 @@ import { Ingredient } from '../shared/ingredient.model';
   template: `
    <div class="row">
     <div class="col-xs-">
-      <app-shoping-edit></app-shoping-edit>
+      <app-shoping-edit
+      (ingredientAdded)="onIngredientAdded($event)"></app-shoping-edit>
       <hr>
       <ul class="list-group">
-        <a href="#" class="list-group-item"style="cursor:pointer" *ngFor="let ing of ingredients">
+
+        <a href="#"
+         class="list-group-item"
+         style="cursor:pointer" 
+         *ngFor="let ing of ingredients">
       {{ing.name}} ({{ing.amount}})
       </a>
       </ul>
@@ -27,5 +32,8 @@ ingredients:Ingredient[]=[
 
 ngOnInit(): void {
   
+}
+onIngredientAdded(ing:Ingredient){
+  this.ingredients.push(ing);
 }
 }
