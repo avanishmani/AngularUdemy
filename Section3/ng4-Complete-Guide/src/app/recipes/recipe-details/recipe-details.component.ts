@@ -20,7 +20,8 @@ import { Recipe } from '../recipe/recipe.model';
     </div>
     <div class="row ">
       <div class="col-xs-12">
-        <div class="btn-group">
+        <div class="btn-group"
+        appDropdown>
           <button
            type="button" 
            class="btn btn-primary dropdown-toggle">
@@ -43,7 +44,12 @@ import { Recipe } from '../recipe/recipe.model';
     
     <div class="row">
       <div class="col-xs-12">
-        Ingreadients
+       <ul class="list-group">
+        <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+          {{ingredient.name}}-{{ingredient.amount}}
+        </li>
+
+       </ul>
       </div>
     </div>
 
